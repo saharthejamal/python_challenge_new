@@ -2,13 +2,24 @@
 import csv
 total_months = 0
 total_dollars = 0
+dollars_list = []
+changes_list = []
 with open("../resources/budget_data.csv" , 'r') as csvfile:
     csvreader = csv.reader(csvfile)
+    csvreader_copy = csvreader 
     column_names = next(csvreader)
     for row in csvreader:
         total_months += 1 
         total_dollars += int(row[1])
-
+    
+        dollars_list.append(int(row[1]))
+    for i, dollar in enumerate(dollars_list):
+        if i > 0:
+            changes_list.append(int(dollars_list[i])-int(dollars_list[i - 1]))
+        else: 
+            changes_list.append(int(dollars_list[i]))
+            # changes_list.append(0)
+print(sum(changes_list)/len(changes_list))
 
 
 financial_analysis = f"""
