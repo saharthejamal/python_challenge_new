@@ -24,13 +24,8 @@ with open("../resources/election_data.csv" , 'r') as csvfile:
         percent_count["Correy"] = (((vote_count["Correy"])/(total_votes)) * 100)
         percent_count["Li"] = (((vote_count["Li"])/(total_votes)) * 100)
         percent_count["O'Tooley"] = (((vote_count["O'Tooley"])/(total_votes)) * 100)
-    # print(round(percent_count["Khan"]))
-    # print(round(percent_count["Correy"]))
-    # print(round(percent_count["Li"]))
-    # print(round(percent_count["O'Tooley"]))
 
-# print(vote_count["Khan"])
-
+max_key = max(vote_count, key=vote_count.get)
 
 election_results = f"""
 Election Results
@@ -42,7 +37,7 @@ Correy: {(round(percent_count["Correy"]))}% {vote_count["Correy"]}
 Li: {(round(percent_count["Li"]))}% {vote_count["Li"]}
 O'Tooley: {(round(percent_count["O'Tooley"]))}% {vote_count["O'Tooley"]}
 -------------------------
-Winner: Khan
+Winner: {max_key}
 -------------------------
 """
 
