@@ -17,9 +17,13 @@ with open("../resources/budget_data.csv" , 'r') as csvfile:
         if i > 0:
             changes_list.append(int(dollars_list[i])-int(dollars_list[i - 1]))
         else: 
-            changes_list.append(int(dollars_list[i]))
-            # changes_list.append(0)
+            # changes_list.append(int(dollars_list[i]))
+            changes_list.append(0)
+        avg_change = (sum(changes_list)/len(changes_list)) 
 print(sum(changes_list)/len(changes_list))
+# print(avg_change) 
+
+
 
 
 financial_analysis = f"""
@@ -27,7 +31,7 @@ Financial Analysis
 ----------------------------
 Total Months: {total_months}
 Total: ${total_dollars}
-Average  Change: $-2315.12
+Average  Change: ${avg_change}
 Greatest Increase in Profits: Feb-2012 ($1926159)
 Greatest Decrease in Profits: Sep-2013 ($-2196167)
 """
